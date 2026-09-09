@@ -68,11 +68,13 @@ It's better to buy from the second shop, spending $53$ coins.
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T16:07:44.228Z  
+**Submitted:** 2026-09-09T16:10:23.538Z  
 
 ```py
-# cook your dish here
-
+x,y,z=map(int,input().split())
+cost1=12*x
+cost2=12*y+z
+print(min(cost1,cost2))
 ```
 
 ---
