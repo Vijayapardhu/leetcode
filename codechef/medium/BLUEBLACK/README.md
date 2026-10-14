@@ -63,7 +63,7 @@ Chef can buy $3$ blue pens for a cost of $30$.
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T14:43:37.314Z  
+**Submitted:** 2026-10-14T14:43:59.307Z  
 
 ```py
 a,b=  int(input()), int(input())
