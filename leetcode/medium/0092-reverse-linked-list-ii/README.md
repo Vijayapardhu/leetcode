@@ -1,0 +1,78 @@
+# Reverse Linked List II
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
+
+## Problem
+
+Given the `head` of a singly linked list and two integers `left` and `right` where `left <= right`, reverse the nodes of the list from position `left` to position `right`, and return  *the reversed list*.
+
+ 
+
+ **Example 1:** 
+
+```
+Input: head = [1,2,3,4,5], left = 2, right = 4
+Output: [1,4,3,2,5]
+
+```
+
+ **Example 2:** 
+
+```
+Input: head = [5], left = 1, right = 1
+Output: [5]
+
+```
+
+ 
+
+ **Constraints:** 
+
+- The number of nodes in the list is n.
+- 1 <= n <= 500
+- -500 <= Node.val <= 500
+- 1 <= left <= right <= n
+
+ 
+
+ **Follow up:**  Could you do it in one pass?
+
+## Solution
+
+**Language:** Python  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19.2 MB (beats 90.90%)  
+**Submitted:** 2026-10-18T14:28:29.713Z  
+
+```py
+
+
+class Solution:
+    def reverseBetween(self, head: ListNode | None, left: int, right: int) -> ListNode | None:
+        if not head or left == right:
+            return head
+
+        # Use a dummy node to handle cases where the head is reversed
+        dummy = ListNode(0, head)
+        prev = dummy
+
+        # Reach the node just before the start of the reversal
+        for _ in range(left - 1):
+            prev = prev.next
+
+        # curr is the node that will be moved, next_node is the node to be moved next
+        curr = prev.next
+        
+        # Perform in-place reversal using pointer manipulation
+        for _ in range(right - left):
+            next_node = curr.next
+            curr.next = next_node.next
+            next_node.next = prev.next
+            prev.next = next_node
+
+        return dummy.next
+```
+
+---
+
+[View on LeetCode](https://leetcode.com/problems/reverse-linked-list-ii/)
